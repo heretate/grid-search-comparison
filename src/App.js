@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Topbar/>
-      <div className="container">
+      <div className="contentContainer">
         <Sidebar/>
         <div className="chartWrapper">
           <Chart/>

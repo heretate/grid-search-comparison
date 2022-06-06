@@ -1,5 +1,5 @@
 import "./sidebar.css"
-import {LineStyle, Timeline, TrendingUp} from '@mui/icons-material';
+import {LineStyle, Timeline} from '@mui/icons-material';
 
 export default function Sidebar() {
   return (
@@ -10,15 +10,11 @@ export default function Sidebar() {
                 <ul className="sidebarList">
                     <li className="sidebarListItem">
                         <LineStyle className="sidebarIcon"/>
-                        Home
+                        Algorithm Speed Comparison
                     </li>
                     <li className="sidebarListItem">
                         <Timeline className="sidebarIcon"/>
-                        Analytics
-                    </li>
-                    <li className="sidebarListItem">
-                        <TrendingUp className="sidebarIcon"/>
-                        Sales
+                        Other
                     </li>
                 </ul>
             </div>

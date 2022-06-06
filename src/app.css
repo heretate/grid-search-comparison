@@ -1,8 +1,8 @@
-.container{
+.contentContainer{
     display: flex;
 }
 
 .chartWrapper{
-    flex: 4;
+    flex: 6;
 }
 
