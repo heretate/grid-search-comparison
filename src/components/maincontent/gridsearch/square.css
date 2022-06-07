@@ -8,15 +8,11 @@
     --border-bottom-color: rgba(0, 0, 0, 0.5);
   
     /* Square Colors:  background colors for the squares.*/
-    --color-0: #eaeaea;
-    --color-1: #FFFAFA;
-    --color-2: #eec900;
-    --color-3: #0000ff;
-    --color-4: #cc00ff;
-    --color-5: #00ff00;
-    --color-6: #66ccff;
-    --color-7: #ff0000;
-  
+    --color-0: #FFFAFA;
+    --color-1: #f2ea00;
+    --color-2: #6666f0;
+    --color-3: #2bd319;
+
     /* Button Colors */
     --button-color-t: rgba(200, 200, 200, 1);
     --button-color-r: rgba(150, 150, 150, 1);
@@ -25,8 +21,6 @@
   
     /* Numbers define values that will be used throughout the CSS.
     --tile-size: 20px for example will set size of the grid squares. */
-    --cols: 50;
-    --rows: 50;
     --tile-size: 30px;
     --border-width: 2px;
 }
@@ -39,34 +33,28 @@ border-width: 0.05;
 border-color:rgba(200, 200, 200, 1);
 }
 
-.square-color-0 {
-    background-color: var(--color-0);
-  }
-  
-.square-color-1 {
-    background-color: var(--color-1);
-}
-
-.square-color-2 {
+.start {
     background-color: var(--color-2);
 }
-
-.square-color-3 {
+.end {
+    background-color: var(--color-2);
+}
+.wall {
     background-color: var(--color-3);
 }
 
-.square-color-4 {
-    background-color: var(--color-4);
+.left-visited-false-right-visited-false {
+    background-color: var(--color-0);
+}
+  
+.left-visited-true-right-visited-false {
+    background-color: var(--color-1);
 }
 
-.square-color-5 {
-    background-color: var(--color-5);
+.left-visited-false-right-visited-true {
+    background-color: var(--color-2);
 }
 
-.square-color-6 {
-    background-color: var(--color-6);
-}
-
-.square-color-7 {
-    background-color: var(--color-7);
+.left-visited-true-right-visited-true {
+    background-color: var(--color-3);
 }

@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import './gridnavbar.css'
+import './navbar.css'
 
-export default function GridNavBar() {
+export default function NavBar() {
     return (
       <div className="content-nav-bar">
         <Navbar bg="light" expand="lg">

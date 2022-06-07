@@ -1,6 +1,6 @@
 import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
-import Chart from "./components/mainContent/Chart";
+import MainContent from "./components/maincontent/MainContent";
 
 import "./app.css"
 
@@ -8,10 +8,10 @@ function App() {
   return (
     <div>
       <Topbar/>
-      <div className="contentContainer">
+      <div className="appContainer">
         <Sidebar/>
-        <div className="chartWrapper">
-          <Chart/>
+        <div className="contentContainer">
+          <MainContent/>
         </div>
         
       </div>
