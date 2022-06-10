@@ -10,18 +10,13 @@
     /* Square Colors:  background colors for the squares.*/
     --default: #FFFAFA;
     --node: #000000;
+    --wall: #808080;
     --left-shortest: #FF69B4;
     --right-shortest: #f2ea00;
     --both-shortest: #FFAC1C;
     --left-visited: #6666f0;
     --right-visited: #2bd319;
     --both-visited: #AFEEEE;
-
-    /* Button Colors */
-    --button-color-t: rgba(200, 200, 200, 1);
-    --button-color-r: rgba(150, 150, 150, 1);
-    --button-color-b: rgba(120, 120, 120, 1);
-    --button-color-l: rgba(222, 222, 222, 1);
   
     /* Numbers define values that will be used throughout the CSS.
     --tile-size: 20px for example will set size of the grid squares. */
@@ -44,7 +39,7 @@ border-color:rgba(200, 200, 200, 1);
     background-color: var(--node);
 }
 .wall {
-    background-color: var(--color-3);
+    background-color: var(--wall);
 }
 
 .left-visited-false-right-visited-false {
@@ -61,4 +56,16 @@ border-color:rgba(200, 200, 200, 1);
 
 .left-visited-true-right-visited-true {
     background-color: var(--both-visited);
+}
+
+.left-shortest-true-right-shortest-false {
+    background-color: var(--left-shortest);
+}
+
+.left-shortest-false-right-shortest-true {
+    background-color: var(--right-shortest);
+}
+
+.left-shortest-true-right-shortest-true {
+    background-color: var(--both-shortest);
 }

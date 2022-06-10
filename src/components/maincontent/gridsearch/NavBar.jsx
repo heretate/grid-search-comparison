@@ -24,7 +24,8 @@ export default function NavBar(props) {
                 
                   <NavDropdown.Item>Dijkstra</NavDropdown.Item>
               </NavDropdown>
-              <Button variant="outline-success" onClick={props.clickGo}>Go!</Button>
+              <Button id="go-button" variant="outline-success" onClick={props.clickGo} disabled={false}>Go!</Button>
+              <Button id="reset-button" variant="outline-success" onClick={props.clickReset} disabled={false}>Reset Board</Button>
                 
               </Nav>
             </Navbar.Collapse>

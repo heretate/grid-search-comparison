@@ -5,6 +5,8 @@ import getAlgorithm from "../../../algorithms/index.js"
 
 import "./game.css"
 
+const UPDATE_SPEED = 10;
+
 const ROW_LEN = 28;
 const COL_LEN = 40;
 const HORIZONTAL_OFFSET = 7
@@ -54,16 +56,21 @@ const animateAlgorithm = (searchSequence) => {
     ((square.row === FINISH_SQUARE_ROW) && (square.col === FINISH_SQUARE_COL))) {
       continue;
     }
-    console.log(i);
     setTimeout(() => {
       document.getElementById(`${square.row}-${square.col}`).className =
         'grid-square left-visited-true-right-visited-false';
-    }, i * 10);
+    }, i * UPDATE_SPEED);
   }
 }
 
 const animateShortestPath = (pathSequence) => {
-
+  for (let i = 0; i < pathSequence.length; i++) {
+    const square = pathSequence[i];
+    setTimeout(() => {
+      document.getElementById(`${square.row}-${square.col}`).className =
+        'grid-square left-shortest-true-right-shortest-false';
+    }, i * (UPDATE_SPEED + 50));
+  }
 }
 
 
@@ -76,12 +83,38 @@ export default function Game() {
       setAlgorithm(algo);
     }
 
+    /*
+    Used async/await to force timeouts to in practice behave synchronously.
+    Doesn't solve the lock problem however.
+    */
+    const animate = async(newGrid, visitSequence, shortestPath) => {
+      animateAlgorithm(visitSequence);
+      await new Promise((resolve) => {
+        setTimeout(() => {
+            // Resolve the promise
+            resolve(setGrid(newGrid));
+        }, visitSequence.length * UPDATE_SPEED + 100);
+      });
+      animateShortestPath(shortestPath);
+    }
+
     const clickGo = () => {
       const algoFn = getAlgorithm("dijkstra");
       const [newGrid, visitSequence, shortestPath] = algoFn(grid, [START_SQUARE_ROW, START_SQUARE_COL], [FINISH_SQUARE_ROW, FINISH_SQUARE_COL]);
-      animateAlgorithm(visitSequence, setGrid, newGrid);
-      animateShortestPath(shortestPath);
-      /* setGrid(newGrid); */
+      animate(newGrid, visitSequence, shortestPath);
+    }
+
+
+    const clickReset = () => {
+      const newGrid = initializeGrid();
+      setGrid(newGrid);
+      for (let row = 0; row < newGrid.length; row ++) {
+        for (let col = 0; col < newGrid[0].length; col ++) {
+          if (!(newGrid[row][col].isEnd || newGrid[row][col].isStart)) {
+            document.getElementById(`${row}-${col}`).className = 'grid-square left-visited-false-right-visited-false';
+          }
+        }
+      }      
     }
 
     
@@ -97,21 +130,12 @@ export default function Game() {
         ...squareState,
         isWall: !squareState.isWall,
       }
-      updateSquare(row, col, newSquareState)
-      if (newSquareState.isWall) {
-        document.getElementById(`${row}-${col}`).className = 'grid-square wall';
-      }
-      else
-      {
-        document.getElementById(`${row}-${col}`).className = 'grid-square left-visited-false-right-visited-false';
-      }
-      
-      
+      updateSquare(row, col, newSquareState);
     }
 
     return (
       <div className="game">
-        <NavBar clickAlgo={clickAlgorithm} clickGo={clickGo}/>
+        <NavBar clickAlgo={clickAlgorithm} clickGo={clickGo} clickReset={clickReset}/>
         <Board grid={grid} rowLength={ROW_LEN} colLength={COL_LEN} handleClick={clickWall}/>
       </div>
     )

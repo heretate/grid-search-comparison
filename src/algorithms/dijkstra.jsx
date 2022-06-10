@@ -20,10 +20,10 @@ export default function dijkstra(grid, startSquare, endSquare) {
         let arr = [];
         let currentSquare = finishedGrid[endSquare[0]][endSquare[1]];
         while (!currentSquare.isStart) {
-            arr.push([currentSquare.row, currentSquare.col]);
+            arr.push(currentSquare);
             currentSquare = currentSquare.prevSquare;
         }
-        arr.push([currentSquare.row, currentSquare.col]);
+        arr.push(currentSquare);
         return arr.reverse();
     }
     frontier.push([0, newGrid[startSquare[0]][startSquare[1]]]);
