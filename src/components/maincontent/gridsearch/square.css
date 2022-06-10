@@ -8,10 +8,14 @@
     --border-bottom-color: rgba(0, 0, 0, 0.5);
   
     /* Square Colors:  background colors for the squares.*/
-    --color-0: #FFFAFA;
-    --color-1: #f2ea00;
-    --color-2: #6666f0;
-    --color-3: #2bd319;
+    --default: #FFFAFA;
+    --node: #000000;
+    --left-shortest: #FF69B4;
+    --right-shortest: #f2ea00;
+    --both-shortest: #FFAC1C;
+    --left-visited: #6666f0;
+    --right-visited: #2bd319;
+    --both-visited: #AFEEEE;
 
     /* Button Colors */
     --button-color-t: rgba(200, 200, 200, 1);
@@ -34,27 +38,27 @@ border-color:rgba(200, 200, 200, 1);
 }
 
 .start {
-    background-color: var(--color-2);
+    background-color: var(--node);
 }
 .end {
-    background-color: var(--color-2);
+    background-color: var(--node);
 }
 .wall {
     background-color: var(--color-3);
 }
 
 .left-visited-false-right-visited-false {
-    background-color: var(--color-0);
+    background-color: var(--default);
 }
   
 .left-visited-true-right-visited-false {
-    background-color: var(--color-1);
+    background-color: var(--left-visited);
 }
 
 .left-visited-false-right-visited-true {
-    background-color: var(--color-2);
+    background-color: var(--right-visited);
 }
 
 .left-visited-true-right-visited-true {
-    background-color: var(--color-3);
+    background-color: var(--both-visited);
 }

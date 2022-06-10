@@ -5,7 +5,7 @@ export default function Square(props) {
     const [isWall, setIsWall] = useState(false);
 
     const getVisited = (visitLeft, visitRight) => {
-        const classType = `left-visited-${false}-right-visited-${false}`;
+        const classType = `left-visited-${visitLeft}-right-visited-${visitRight}`;
         return classType;
     }
 
@@ -19,5 +19,5 @@ export default function Square(props) {
     
 
     const classes = `grid-square ${classType}`
-    return <button className={classes} id={`${props.row}-${props.col}`} />
+    return <button className={classes} id={`${props.row}-${props.col}`} onClick={props.handleClick} />
 }

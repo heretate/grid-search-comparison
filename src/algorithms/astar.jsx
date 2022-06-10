@@ -6,7 +6,7 @@ const DOWN = [0, -1];
 const LEFT = [-1, 0];
 const RIGHT = [1, 0]; 
 
-export default function dijkstra(grid, startSquare, endSquare) {
+export default function astar(grid, startSquare, endSquare) {
     /*
     startSquare and endSquare should be [row, col] pairs 
     */
