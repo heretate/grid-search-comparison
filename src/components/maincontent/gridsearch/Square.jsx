@@ -1,5 +1,8 @@
 import './square.css'
+import {useState} from 'react';
 export default function Square(props) {
+
+    const [isWall, setIsWall] = useState(false);
 
     const getVisited = (visitLeft, visitRight) => {
         const classType = `left-visited-${visitLeft}-right-visited-${visitRight}`;
@@ -14,10 +17,17 @@ export default function Square(props) {
     ? 'wall'
     : getVisited(props.leftVisited, props.rightVisited)
 
+    if (props.isWall !== isWall) {
+        setIsWall(props.isWall);
+    }
+
     const handleClick = () => {
         props.handleClick(props.row, props.col);
     }
     
+    const handleMouseDown = () => {
+        props.handleMouseDown(isWall, props.row, props.col);
+    }
 
     const classes = `grid-square ${classType}`
     return <button className={classes} id={`${props.row}-${props.col}`} onClick={handleClick} />
