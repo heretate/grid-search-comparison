@@ -7,9 +7,9 @@ export default function Square(props) {
     }
 
     const classType = props.isEnd
-    ? 'end'
+    ? 'end-default'
     : props.isStart
-    ? 'start'
+    ? 'start-default test'
     : props.isWall
     ? 'wall'
     : getVisited(props.leftVisited, props.rightVisited)

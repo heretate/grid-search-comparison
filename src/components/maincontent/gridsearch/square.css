@@ -14,30 +14,39 @@
     --left-shortest: #FF69B4;
     --right-shortest: #f2ea00;
     --both-shortest: #FFAC1C;
-    --left-visited: #6666f0;
-    --right-visited: #2bd319;
+    --left-visited: rgb(171, 171, 241);
+    --right-visited: rgb(73, 245, 73);
     --both-visited: #AFEEEE;
   
     /* Numbers define values that will be used throughout the CSS.
     --tile-size: 20px for example will set size of the grid squares. */
     --tile-size: 30px;
+    --tile-row-size: 30px;
+    --tile-col-size: 30px;
     --border-width: 2px;
 }
 
 .grid-square {
 border-style: solid;
-width: var(--tile-size);
-height: var(--tile-size);
+width: var(--tile-row-size);
+height: var(--tile-col-size);
 border-width: 0.05;
 border-color:rgba(200, 200, 200, 1);
 }
 
-.start {
-    background-color: var(--node);
+.start-default{
+    background: url("../../../assets/start.png"), var(--default);
+    background-size:100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.end {
-    background-color: var(--node);
+.end-default{
+    background: url("../../../assets/target.png"), var(--default);
+    background-size: 85% 85%; 
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
 .wall {
     background-color: var(--wall);
 }

@@ -4,8 +4,10 @@
 
   .grid-board {
     display: grid;
-    grid-template-columns: repeat(var(--cols), var(--tile-size));
+    width: 80%;
+    grid-template-columns: repeat(var(--cols), minmax(10px, 30px));
     grid-gap: 0;
     justify-items: center;
     align-items: center;
+    padding-top: 35px;
   }

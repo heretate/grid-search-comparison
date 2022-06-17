@@ -65,3 +65,21 @@ export default class PriorityQueue {
     }
   }
 }
+
+
+/*
+Comparator function used for defining priority within the priority queue.
+Elements within the priority queue are sorted first based on priority 
+(distance traveled + heuristic) and next on visit number.
+Visit number is used to break ties in priority in a consistent way.
+*/
+export const comparator = (a, b) => {
+    
+    if (a[0] === b[0]) {
+        return a[1] > b[1];
+    }
+    else {
+        return  a[0] < b[0];
+    }
+   
+}
