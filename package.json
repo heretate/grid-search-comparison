@@ -2,7 +2,7 @@
   "name": "hosted-react-projects",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/react-projects",
+  "homepage": "/hosted-react-projects",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -23,11 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "purge": "rm -rf ../hosted-react-projects/static && cp -fR ./build/* ../react-projects",
-    "frontmatter": "echo '---\ntitle: React Projects\nlayout: null\n---\n' | cat - ../hosted-react-projects/index.html > temp && mv temp ../hosted-react-projects/index.html",
-    "deploy": "npm run purge && npm run frontmatter"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
